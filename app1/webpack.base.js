@@ -3,12 +3,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   output: {
-    // filename: '[name].[fullhash].bundle.js',
-    filename: 'app.bundle.js',
+    filename: '[name].[fullhash].bundle.js',
     path: path.join(__dirname, 'public'),
   },
   optimization: {
     runtimeChunk: 'single',
+    moduleIds: 'deterministic',
   },
   module: {
     rules: [

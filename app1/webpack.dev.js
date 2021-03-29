@@ -8,6 +8,6 @@ module.exports = merge(base, {
     publicPath: '/',
   },
   entry: {
-    app: './index.js',
+    app: './src/index.tsx',
   },
 });

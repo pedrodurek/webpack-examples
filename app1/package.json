@@ -1,7 +1,6 @@
 {
   "name": "webpack-federation-example",
   "version": "0.0.1",
-  "main": "index.tsx",
   "repository": "https://github.com/pedrodurek/webpack-examples.git",
   "author": "Pedro Durek <pedro_hmd@hotmail.com>",
   "license": "MIT",

@@ -8,6 +8,7 @@ module.exports = merge(base, {
     publicPath: '/',
     hot: true,
   },
+  devtool: 'source-map',
   entry: {
     app: './src/index.tsx',
   },

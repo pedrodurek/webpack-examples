@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   output: {
-    filename: '[name].[fullhash].bundle.js',
+    filename: '[name].[contenthash].bundle.js',
     path: path.join(__dirname, 'public'),
   },
   optimization: {

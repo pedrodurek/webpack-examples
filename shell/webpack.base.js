@@ -1,9 +1,10 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { ModuleFederationPlugin } = require('webpack').container;
 
 module.exports = {
   output: {
-    filename: '[name].[fullhash].bundle.js',
+    filename: '[name].[contenthash].bundle.js',
     path: path.join(__dirname, 'public'),
   },
   optimization: {

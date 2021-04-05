@@ -1,14 +1,15 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Dashboard from './views/Dashboard';
 
 const App: FC = () => {
-  const [count, setCount] = useState(0);
   return (
-    <div>
-      <h1>Hello World!!!</h1>
-      <p>Count: {count}</p>
-      <button onClick={() => setCount((prev) => prev + 1)}>Button</button>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/dashboard" component={Dashboard} />
+      </Switch>
+    </Router>
   );
 };
 

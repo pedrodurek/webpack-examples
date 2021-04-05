@@ -1,14 +1,17 @@
-import { FC } from 'react';
+import React, { FC, lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Dashboard from './views/Dashboard';
+
+const Dashboard = lazy(() => import('./views/Dashboard'));
 
 const App: FC = () => {
   return (
     <Router>
-      <Switch>
-        <Route path="/dashboard" component={Dashboard} />
-      </Switch>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Switch>
+          <Route path="/dashboard" component={Dashboard} />
+        </Switch>
+      </Suspense>
     </Router>
   );
 };

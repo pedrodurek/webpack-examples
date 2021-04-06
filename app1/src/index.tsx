@@ -17,7 +17,11 @@ const App: FC = () => {
       <Suspense fallback={<div>Loading...</div>}>
         <Switch>
           <Route path="/dashboard" component={Dashboard} />
-          <Redirect from="/" to="/dashboard" />
+          <Route
+            exact
+            path="/"
+            render={() => <Redirect from="/" to="/dashboard" />}
+          />
         </Switch>
       </Suspense>
     </Router>

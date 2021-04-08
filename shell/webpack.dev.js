@@ -1,5 +1,6 @@
 const base = require('./webpack.base.js');
 const { merge } = require('webpack-merge');
+const { ModuleFederationPlugin } = require('webpack').container;
 
 module.exports = merge(base, {
   mode: 'development',
@@ -12,4 +13,13 @@ module.exports = merge(base, {
   entry: {
     app: './src/index.tsx',
   },
+  plugins: [
+    new ModuleFederationPlugin({
+      name: 'shell',
+      remotes: {
+        app1: 'app1',
+      },
+      shared: ['react', 'react-dom', 'react-router-dom'],
+    }),
+  ],
 });

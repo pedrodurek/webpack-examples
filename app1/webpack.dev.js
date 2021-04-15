@@ -17,6 +17,7 @@ module.exports = merge(base, {
   plugins: [
     new ModuleFederationPlugin({
       name: 'app1',
+      filename: 'remoteEntry.js',
       exposes: {
         Dashboard: './src/views/Dashboard',
       },

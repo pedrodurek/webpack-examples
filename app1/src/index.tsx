@@ -4,4 +4,4 @@
  * Uncaught Error: Shared module is not available for eager consumption
  * In order to sort it out, we have to turn the entry point asynchronous as well.
  *  */
-import('./bootstrap');
+import(/* webpackChunkName: "bootstrap" */ './bootstrap');

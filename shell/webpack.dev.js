@@ -18,6 +18,10 @@ module.exports = merge(base, {
       name: 'shell',
       remotes: {
         app1: 'app1',
+        app2: 'app2',
+      },
+      exposes: {
+        Shell: './src/componentsc/Shell',
       },
       shared: ['react', 'react-dom', 'react-router-dom'],
     }),

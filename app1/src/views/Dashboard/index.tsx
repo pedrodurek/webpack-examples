@@ -5,7 +5,7 @@ const Dashboard: FC = () => {
 
   return (
     <div>
-      <h1>Hello World!!!</h1>
+      <h1>Dashboard</h1>
       <p>Count: {count}</p>
       <button onClick={() => setCount((prev) => prev + 1)}>Button</button>
     </div>

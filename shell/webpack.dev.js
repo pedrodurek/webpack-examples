@@ -21,7 +21,7 @@ module.exports = merge(base, {
         app2: 'app2',
       },
       exposes: {
-        Shell: './src/componentsc/Shell',
+        Shell: './src/components/Shell',
       },
       shared: ['react', 'react-dom', 'react-router-dom'],
     }),

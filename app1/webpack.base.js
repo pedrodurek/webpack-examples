@@ -11,17 +11,9 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js', '.json'],
   },
   optimization: {
-    runtimeChunk: 'single',
+    // Cannot be used when modules are exposed
+    // runtimeChunk: 'single',
     moduleIds: 'deterministic',
-    splitChunks: {
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
-          chunks: 'all',
-        },
-      },
-    },
   },
   module: {
     rules: [

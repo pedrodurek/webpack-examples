@@ -1,10 +1,12 @@
 const base = require('./webpack.base.js');
 const { merge } = require('webpack-merge');
 const { ModuleFederationPlugin } = require('webpack').container;
+const deps = require('./package.json').dependencies;
 
 module.exports = merge(base, {
   mode: 'development',
   devServer: {
+    historyApiFallback: true, // Enable History api (routes)
     port: 3000,
     publicPath: '/',
     hot: true,
@@ -17,13 +19,25 @@ module.exports = merge(base, {
     new ModuleFederationPlugin({
       name: 'shell',
       remotes: {
-        app1: 'app1',
-        app2: 'app2',
+        app1: 'app1@http://localhost:3001/remoteEntry.js',
+        app2: 'app2@http://localhost:3002/remoteEntry.js',
       },
       exposes: {
         Shell: './src/components/Shell',
       },
-      shared: ['react', 'react-dom', 'react-router-dom'],
+      shared: {
+        ...deps,
+        react: {
+          eager: true,
+          singleton: true,
+          requiredVersion: deps.react,
+        },
+        'react-dom': {
+          eager: true,
+          singleton: true,
+          requiredVersion: deps['react-dom'],
+        },
+      },
     }),
   ],
 });

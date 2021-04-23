@@ -6,7 +6,7 @@ module.exports = merge(base, {
   mode: 'development',
   devServer: {
     historyApiFallback: true, // Enable History api (routes)
-    port: 3000,
+    port: 3002,
     publicPath: '/',
     hot: true,
   },

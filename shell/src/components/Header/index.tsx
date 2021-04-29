@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 import { MainContainer, List } from './styles';
 
 const Header: FC = () => (
@@ -7,10 +8,10 @@ const Header: FC = () => (
     <nav>
       <List>
         <li>
-          <a href="#">Dashboard</a>
+          <Link to="/dashboard">Dashboard</Link>
         </li>
         <li>
-          <a href="#">Profile</a>
+          <Link to="/profile">Profile</Link>
         </li>
       </List>
     </nav>

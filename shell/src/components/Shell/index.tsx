@@ -12,15 +12,20 @@ const Dashboard = lazy(
   () => import(/* webpackChunkName: "dashboard" */ 'app1/Dashboard'),
 );
 
+const Profile = lazy(
+  () => import(/* webpackChunkName: "dashboard" */ 'app2/Profile'),
+);
+
 const Shell = () => {
   return (
     <RootContainer>
-      <Header />
-      <main>
-        <Router>
+      <Router>
+        <Header />
+        <main>
           <Suspense fallback={<div>Loading...</div>}>
             <Switch>
               <Route path="/dashboard" component={Dashboard} />
+              <Route path="/profile" component={Profile} />
               <Route
                 exact
                 path="/"
@@ -28,8 +33,8 @@ const Shell = () => {
               />
             </Switch>
           </Suspense>
-        </Router>
-      </main>
+        </main>
+      </Router>
     </RootContainer>
   );
 };

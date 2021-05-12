@@ -1,3 +1,4 @@
+import ErrorBoundary from '../ErrorBoundary';
 import React, { lazy, Suspense } from 'react';
 import {
   Redirect,
@@ -22,17 +23,19 @@ const Shell = () => {
       <Router>
         <Header />
         <main>
-          <Suspense fallback={<div>Loading...</div>}>
-            <Switch>
-              <Route path="/dashboard" component={Dashboard} />
-              <Route path="/profile" component={Profile} />
-              <Route
-                exact
-                path="/"
-                render={() => <Redirect to="/dashboard" />}
-              />
-            </Switch>
-          </Suspense>
+          <ErrorBoundary>
+            <Suspense fallback={<div>Loading...</div>}>
+              <Switch>
+                <Route path="/dashboard" component={Dashboard} />
+                <Route path="/profile" component={Profile} />
+                <Route
+                  exact
+                  path="/"
+                  render={() => <Redirect to="/dashboard" />}
+                />
+              </Switch>
+            </Suspense>
+          </ErrorBoundary>
         </main>
       </Router>
     </RootContainer>
